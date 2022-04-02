@@ -30,7 +30,11 @@
   <node title="Россия">
     <node title="Москва" />
     <node title="Солевая столица" />
-    <node title="Сибирь" />
+    <node title="Сибирь">
+      <node title ="Золотые окурки"/>
+      <node title ="Жидкие пеньки"/>
+    </node>
+      
   </node>
 
 </nodes>
