@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище u1478686_testingsystemModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ftp_path" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_test">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="test_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="test_id" Type="int" Nullable="false" />
+          <Property Name="result" Type="int" Nullable="false" />
+          <Property Name="time" Type="time" Precision="0" Nullable="false" />
+          <Property Name="scores" Type="int" Nullable="false" />
+          <Property Name="date_started" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="date_finished" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="patronymic" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Role" Type="enum" Nullable="false" />
+          <Property Name="test_field" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="user_test_ibfk_1">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="user_test" Type="Self.user_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_test">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_test_ibfk_2">
+          <End Role="test" Type="Self.test" Multiplicity="1" />
+          <End Role="user_test" Type="Self.user_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_test">
+              <PropertyRef Name="test_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище u1478686_testingsystemModelContainer">
+          <EntitySet Name="test" EntityType="Self.test" Schema="u1478686_testingsystem" store:Type="Tables" />
+          <EntitySet Name="user_test" EntityType="Self.user_test" Schema="u1478686_testingsystem" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="u1478686_testingsystem" store:Type="Tables" />
+          <AssociationSet Name="user_test_ibfk_1" Association="Self.user_test_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="user_test" EntitySet="user_test" />
+          </AssociationSet>
+          <AssociationSet Name="user_test_ibfk_2" Association="Self.user_test_ibfk_2">
+            <End Role="test" EntitySet="test" />
+            <End Role="user_test" EntitySet="user_test" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="u1478686_testingsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ftp_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user_test" Relationship="Self.user_test_ibfk_2" FromRole="test" ToRole="user_test" />
+        </EntityType>
+        <EntityType Name="user_test">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="test_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="test_id" Type="Int32" Nullable="false" />
+          <Property Name="result" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="Time" Nullable="false" />
+          <Property Name="scores" Type="Int32" Nullable="false" />
+          <Property Name="date_started" Type="DateTime" Nullable="false" />
+          <Property Name="date_finished" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="test" Relationship="Self.user_test_ibfk_2" FromRole="user_test" ToRole="test" />
+          <NavigationProperty Name="user" Relationship="Self.user_test_ibfk_1" FromRole="user_test" ToRole="users" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user_test" Relationship="Self.user_test_ibfk_1" FromRole="users" ToRole="user_test" />
+          <Property Name="test_field" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="user_test_ibfk_2">
+          <End Role="test" Type="Self.test" Multiplicity="1" />
+          <End Role="user_test" Type="Self.user_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_test">
+              <PropertyRef Name="test_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_test_ibfk_1">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="user_test" Type="Self.user_test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_test">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="u1478686_testingsystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tests" EntityType="Self.test" />
+          <EntitySet Name="user_test" EntityType="Self.user_test" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="user_test_ibfk_2" Association="Self.user_test_ibfk_2">
+            <End Role="test" EntitySet="tests" />
+            <End Role="user_test" EntitySet="user_test" />
+          </AssociationSet>
+          <AssociationSet Name="user_test_ibfk_1" Association="Self.user_test_ibfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="user_test" EntitySet="user_test" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище u1478686_testingsystemModelContainer" CdmEntityContainer="u1478686_testingsystemEntities">
+          <EntitySetMapping Name="tests">
+            <EntityTypeMapping TypeName="u1478686_testingsystemModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ftp_path" ColumnName="ftp_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_test">
+            <EntityTypeMapping TypeName="u1478686_testingsystemModel.user_test">
+              <MappingFragment StoreEntitySet="user_test">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="test_id" ColumnName="test_id" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="scores" ColumnName="scores" />
+                <ScalarProperty Name="date_started" ColumnName="date_started" />
+                <ScalarProperty Name="date_finished" ColumnName="date_finished" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="u1478686_testingsystemModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="test_field" ColumnName="test_field" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

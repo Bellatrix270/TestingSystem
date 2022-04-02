@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<nodes>
+  <node title="Test">
+    <node title="Question1">
+      <node title="Answer1" />
+      <node title="Answer2" />
+      <node title="Answer3" />
+      <node title="Answer4" />
+    </node>
+    <node title="Question2">
+      <node title="Answer1" />
+      <node title="Answer2" />
+      <node title="Answer3" />
+      <node title="Answer4" />
+    </node>
+    <node title="Question3">
+      <node title="Answer1" />
+      <node title="Answer2" />
+      <node title="Answer3" />
+      <node title="Answer4" />
+    </node>
+  </node>
+
+  <node title="Азия">
+    <node title="Китай" />
+    <node title="Япония" />
+    <node title="Индия" />
+  </node>
+
+  <node title="Россия">
+    <node title="Москва" />
+    <node title="Солевая столица" />
+    <node title="Сибирь" />
+  </node>
+
+</nodes>
