@@ -1,4 +1,4 @@
-namespace TestingSystem.Model
+namespace TestingSystem.Models.DomainModel
 {
     using System;
     using System.Collections.Generic;

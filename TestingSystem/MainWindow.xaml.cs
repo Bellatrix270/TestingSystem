@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestingSystem.Models.TestModel;
 
 namespace TestingSystem
 {
@@ -25,6 +26,19 @@ namespace TestingSystem
         {
             InitializeComponent();
             //Model.User user = new Model.TestSystem().Users.First();
+
+            List<Question> questions = new List<Question>();
+
+            List<Answer> answers = new List<Answer>();
+            answers.Add(new Answer("yes", false));
+            answers.Add(new Answer("no", false));
+            answers.Add(new Answer("maybe", true));
+
+            questions.Add(new Question("Кто ты таков?", answers));
+
+            Test OPBD = new Test("OPBD", DateTime.Now, questions);
+
+            bool isCorrectAnswer = OPBD.Questions[0].Answers[0].IsTrue;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace TestingSystem.Model
+namespace TestingSystem.Models.DomainModel
 {
     public partial class TestSystem : DbContext
     {

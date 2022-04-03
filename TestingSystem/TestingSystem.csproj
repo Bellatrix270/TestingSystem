@@ -84,10 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Test.cs" />
-    <Compile Include="Model\TestSystem.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\User_test.cs" />
+    <Compile Include="Models\DomainModel\Test.cs" />
+    <Compile Include="Models\DomainModel\TestSystem.cs" />
+    <Compile Include="Models\DomainModel\User.cs" />
+    <Compile Include="Models\DomainModel\User_test.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +102,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\TestModel\Answer.cs" />
+    <Compile Include="Models\TestModel\Question.cs" />
+    <Compile Include="Models\TestModel\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
