@@ -24,6 +24,7 @@ namespace TestingSystem
         public MainWindow()
         {
             InitializeComponent();
+            //Model.User user = new Model.TestSystem().Users.First();
         }
     }
 }

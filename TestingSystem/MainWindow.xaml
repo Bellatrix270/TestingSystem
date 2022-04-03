@@ -22,7 +22,7 @@
             </Setter>
         </Style>
 
-        <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
+      <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
             <Grid>
               <Track Name="PART_Track" Grid.Row="1" 
                      IsDirectionReversed="True">
