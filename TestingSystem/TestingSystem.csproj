@@ -84,10 +84,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\DomainModel\Test.cs" />
-    <Compile Include="Models\DomainModel\TestSystem.cs" />
-    <Compile Include="Models\DomainModel\User.cs" />
-    <Compile Include="Models\DomainModel\User_test.cs" />
+    <Compile Include="Infrastructure\Commands\Command.cs" />
+    <Compile Include="Infrastructure\Commands\RelayCommand.cs" />
+    <Compile Include="Models\DomainLogic\Test.cs" />
+    <Compile Include="Models\DomainLogic\User.cs" />
+    <Compile Include="Models\EntityDB\Test.cs" />
+    <Compile Include="Models\EntityDB\TestSystem.cs" />
+    <Compile Include="Models\EntityDB\User.cs" />
+    <Compile Include="Models\EntityDB\UserTest.cs" />
+    <Compile Include="Services\FtpService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,9 +107,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\TestModel\Answer.cs" />
-    <Compile Include="Models\TestModel\Question.cs" />
-    <Compile Include="Models\TestModel\Test.cs" />
+    <Compile Include="Models\TestModelJson\Answer.cs" />
+    <Compile Include="Models\TestModelJson\Question.cs" />
+    <Compile Include="Models\TestModelJson\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -140,6 +145,11 @@
   <ItemGroup>
     <Folder Include="Graphical resourses\Fonts\" />
     <Folder Include="Graphical resourses\Images\" />
+    <Folder Include="ViewModels" />
+    <Folder Include="Views\Windows" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tests.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,7 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestingSystem.Models.TestModel;
+using System.Xml.Serialization;
+using TestingSystem.Models.EntityDB;
+using Test = TestingSystem.Models.TestModelJson.Test;
 
 namespace TestingSystem
 {
@@ -25,20 +29,36 @@ namespace TestingSystem
         public MainWindow()
         {
             InitializeComponent();
-            //Model.User user = new Model.TestSystem().Users.First();
 
-            List<Question> questions = new List<Question>();
+            TestSystem db = new TestSystem();
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Test));
+            List<Test> tests = new List<Test>();
+            int countTest = db.Tests.Count();
 
-            List<Answer> answers = new List<Answer>();
-            answers.Add(new Answer("yes", false));
-            answers.Add(new Answer("no", false));
-            answers.Add(new Answer("maybe", true));
+            for (int i = 0; i < countTest; i++)
+            {
+                string remotePath = db.Tests.ToList()[i].FtpPath;
 
-            questions.Add(new Question("Кто ты таков?", answers));
+                FtpWebRequest request = WebRequest.Create(@"ftp://37.140.192.191" + remotePath) as FtpWebRequest;
 
-            Test OPBD = new Test("OPBD", DateTime.Now, questions);
+                request.Credentials = new NetworkCredential("u1478686", "wP2fP1bX8hfV9a");
+                request.KeepAlive = false;
+                request.UseBinary = true;
+                request.Method = WebRequestMethods.Ftp.DownloadFile;
 
-            bool isCorrectAnswer = OPBD.Questions[0].Answers[0].IsTrue;
+                Stream str = request.GetResponse().GetResponseStream();
+                tests.Add(xmlSerializer.Deserialize(str) as Test);
+            }
+
+            TreeViewTest.ItemsSource = tests;
+            
+            XmlDataProvider xmlDataProvider = new XmlDataProvider();
+
+            //using (FileStream fs = new FileStream("Test.xml", FileMode.OpenOrCreate))
+            //{
+            //    xmlSerializer.Serialize(fs, tests);
+            //}
+            
         }
     }
 }

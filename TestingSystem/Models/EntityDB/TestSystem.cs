@@ -1,9 +1,6 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
 
-namespace TestingSystem.Models.DomainModel
+namespace TestingSystem.Models.EntityDB
 {
     public partial class TestSystem : DbContext
     {
@@ -13,43 +10,43 @@ namespace TestingSystem.Models.DomainModel
         }
 
         public virtual DbSet<Test> Tests { get; set; }
-        public virtual DbSet<User_test> User_test { get; set; }
+        public virtual DbSet<UserTest> UserTest { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Test>()
-                .Property(e => e.name)
+                .Property(e => e.Name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Test>()
-                .Property(e => e.ftp_path)
+                .Property(e => e.FtpPath)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Test>()
-                .HasMany(e => e.user_test)
-                .WithRequired(e => e.test)
-                .HasForeignKey(e => e.test_id)
+                .HasMany(e => e.UserTest)
+                .WithRequired(e => e.Test)
+                .HasForeignKey(e => e.TestId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.login)
+                .Property(e => e.Login)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.password)
+                .Property(e => e.Password)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.first_name)
+                .Property(e => e.FirstName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.last_name)
+                .Property(e => e.LastName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.patronymic)
+                .Property(e => e.Patronymic)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
@@ -57,13 +54,13 @@ namespace TestingSystem.Models.DomainModel
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.test_field)
+                .Property(e => e.TestField)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.user_test)
-                .WithRequired(e => e.user)
-                .HasForeignKey(e => e.user_id)
+                .HasMany(e => e.UserTest)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
         }
     }

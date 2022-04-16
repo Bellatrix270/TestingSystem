@@ -1,0 +1,281 @@
+<?xml version="1.0"  encoding="utf-8" ?>
+<ArrayOfTest xmlns="">
+    <Test>
+        <Name>OPBD</Name>
+        <Time>2022-04-03T21:26:21.4521088+07:00</Time>
+        <Questions>
+            <Question>
+                <Title>Кто ты таков?</Title>
+                <Answers>
+                    <Answer>
+                        <Title>yes</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>no</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>maybe</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Что ты таков?</Title>
+                <Answers>
+                    <Answer>
+                        <Title>yes</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>no</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>maybe</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+        </Questions>
+    </Test>
+    <Test>
+        <Name>ORM</Name>
+        <Time>2022-04-03T21:26:21.4530854+07:00</Time>
+        <Questions>
+            <Question>
+                <Title>Как часто вы жОстко занухиваете Гашишик?</Title>
+                <Answers>
+                    <Answer>
+                        <Title>yes</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>no</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>maybe</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+        </Questions>
+    </Test>
+    <Test>
+        <Name>OAP</Name>
+        <Time>2022-04-03T21:26:21.4530854+07:00</Time>
+        <Questions>
+            <Question>
+                <Title>На каких языках программирования можно работать в Visual Studio .Net?</Title>
+                <Answers>
+                    <Answer>
+                        <Title>только на языке C#</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>на четырех языках - Visual C++, C#, Visual Basic, J#</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>число языков не ограничено</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Объект класса string можно создать:</Title>
+                <Answers>
+                    <Answer>
+                        <Title>конструктором по умолчанию</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>без явного вызова конструктора</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>без явного вызова конструктора</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>конструктором, которому передается объект char[]</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Класс имеет:</Title>
+                <Answers>
+                    <Answer>
+                        <Title>только один конструктор</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>только конструктор по умолчанию</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>не более одного статического конструктора</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>не более одного закрытого конструктора</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>несколько конструкторов с одинаковой сигнатурой</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Отметьте корректные объявления делегата – функционального класса:</Title>
+                <Answers>
+                    <Answer>
+                        <Title>public class D = delegate void(string s)</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>Delegate D1 = new Delegate( void(string s)</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>public delegate void D2 (string s)</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>delegate int T(int x1, ref int x2)</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>public delegate T1(int x)</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>К значимым типам языка C# относятся:</Title>
+                <Answers>
+                    <Answer>
+                        <Title>все арифметические типы</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>массивы</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>строки</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>все арифметические типы, кроме типа double</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>
+                    Чему будет равно x в результате выполнения следующего фрагмента: 
+                    int x=5; for(int i =1; i<![CDATA[<]]>5; i++); x+=5;
+                </Title>
+                <Answers>
+                    <Answer>
+                        <Title>5</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>10</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>25</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Метод можно описать на уровне:</Title>
+                <Answers>
+                    <Answer>
+                        <Title>класса</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>пространства имен</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>проекта</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Отметьте истинные высказывания:</Title>
+                <Answers>
+                    <Answer>
+                        <Title>каждый объект содержит набор из всех полей, определенных в классе</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>создание объекта выполняется операцией new с вызовом конструктора класса</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>для реализации стратегии доступа к закрытым полям класса используются методы-свойства</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>
+                    В результате объявления: 
+                    int x=1, y=2, z=( (x|y + ++x)>5) ? x|y : ++x+2; переменные x, y, z получат значения
+                </Title>
+                <Answers>
+                    <Answer>
+                        <Title>x=1; y=2; z=4</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>x=2; y=2; z=4</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>x=3; y=2; z=5</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>возникнет ошибка на этапе трансляции</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>возникнет ошибка на этапе выполнения</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question>
+                <Title>Пусть процедура ItWorks имеет следующий заголовок: 
+                    public void ItWorks(object[] A) .Какой массив может быть передан ей в качестве аргумента?</Title>
+                <Answers>
+                    <Answer>
+                        <Title>int[] x</Title>
+                        <IsTrue>false</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>string[] s</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                    <Answer>
+                        <Title>Person[] p; (Person – класс, определенный пользователем</Title>
+                        <IsTrue>true</IsTrue>
+                    </Answer>
+                </Answers>
+            </Question>
+        </Questions>
+    </Test>
+</ArrayOfTest>

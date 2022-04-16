@@ -7,7 +7,8 @@
         mc:Ignorable="d" ResizeMode="NoResize"
         Title="MainWindow" Height="720" Width="1280">
     <Window.Resources>
-      <XmlDataProvider x:Key="nodesProvider" Source="nodes.xml" XPath="nodes/node" />
+      <XmlDataProvider x:Key="nodesProvider" Source="nodes.xml" XPath="nodes/node"/>
+      <XmlDataProvider x:Key="TestProvider" Source="C:\Users\Bellatrix\source\repos\TestingSystem\TestingSystem\tests.xml"/>
 
       <Style x:Key="ScrollBarThumbStyle" TargetType="{x:Type Thumb}">
             <Setter Property="IsTabStop" Value="False"/>
@@ -53,13 +54,31 @@
               <GradientStop Color="#705DA8"/>
             </LinearGradientBrush>
           </Border.Background>
-          <TreeView ItemsSource="{Binding Source={StaticResource nodesProvider}}" Background="Transparent" BorderThickness="0">
-            <TreeView.ItemTemplate>
-              <HierarchicalDataTemplate ItemsSource="{Binding XPath=node}">
-                <TextBlock Text="{Binding XPath=@title}" Foreground="White" FontSize="36"/>
-              </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
+            
+          <TreeView x:Name="TreeViewTest" Foreground="White" FontSize="21" Background="Transparent" BorderThickness="0">
+              <TreeView.ItemTemplate>
+                  <HierarchicalDataTemplate ItemsSource="{Binding Questions}">
+                      <TextBox Text="{Binding Name}" Foreground="White" Background="Transparent" BorderThickness="0" FontWeight="Regular"/>
+                      <!-- child node will be a Questions -->
+                      <HierarchicalDataTemplate.ItemTemplate>
+                          <HierarchicalDataTemplate ItemsSource="{Binding Answers}">
+                              <TextBlock Text="{Binding Title}" Foreground="White" FontWeight="Light"/>
+                              <!-- leaf will be a Answers -->
+                              <HierarchicalDataTemplate.ItemTemplate>
+                                  <DataTemplate>
+                                      <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Title}" Foreground="White" FontWeight="Light"/>
+                                        <TextBlock Text="|" Margin="5,0" Foreground="Ivory" FontWeight="Light"/>
+                                        <TextBlock Text="{Binding Path=IsTrue}" Foreground="White" FontWeight="Light"/>  
+                                      </StackPanel>
+                                  </DataTemplate>
+                              </HierarchicalDataTemplate.ItemTemplate>
+                          </HierarchicalDataTemplate>
+                      </HierarchicalDataTemplate.ItemTemplate>
+                  </HierarchicalDataTemplate>
+              </TreeView.ItemTemplate>
           </TreeView>
+            
         </Border>
     </Grid>
 </Window>
