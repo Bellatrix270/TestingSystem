@@ -84,8 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Exception\UserException.cs" />
     <Compile Include="Infrastructure\Commands\Command.cs" />
     <Compile Include="Infrastructure\Commands\RelayCommand.cs" />
+    <Compile Include="Infrastructure\OnPropertyChangedClass.cs" />
     <Compile Include="Models\DomainLogic\Test.cs" />
     <Compile Include="Models\DomainLogic\User.cs" />
     <Compile Include="Models\EntityDB\Test.cs" />
@@ -93,7 +95,10 @@
     <Compile Include="Models\EntityDB\User.cs" />
     <Compile Include="Models\EntityDB\UserTest.cs" />
     <Compile Include="Services\FtpService.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Views\Windows\AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\Windows\TestsListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -101,10 +106,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Views\Windows\TestsListWindow.xaml.cs">
+      <DependentUpon>TestsListWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles\ProjectResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\AuthorizationWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\TestModelJson\Answer.cs" />
@@ -127,6 +137,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Graphical resourses\Fonts\Montserrat-Light.ttf" />
+    <Resource Include="Graphical resourses\Fonts\Montserrat-Black.ttf" />
+    <Resource Include="Graphical resourses\Fonts\Montserrat-Bold.ttf" />
+    <Resource Include="Graphical resourses\Fonts\Montserrat-Medium.ttf" />
+    <Resource Include="Graphical resourses\Fonts\Montserrat-Regular.ttf" />
+    <Resource Include="Graphical resourses\Fonts\Montserrat-SemiBold.ttf" />
+    <Resource Include="Graphical resourses\Fonts\Montserrat-Thin.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -143,12 +160,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Graphical resourses\Fonts\" />
-    <Folder Include="Graphical resourses\Images\" />
-    <Folder Include="ViewModels" />
-    <Folder Include="Views\Windows" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Graphical resourses\Images\Blobs1.png" />
+    <Resource Include="Graphical resourses\Images\Blobs2.png" />
+    <Resource Include="Graphical resourses\Images\Blobs3.png" />
+    <Resource Include="Graphical resourses\Images\Blobs4.png" />
+    <Resource Include="Graphical resourses\Images\Blobs_background.png" />
+    <Resource Include="Graphical resourses\Images\Button_exit.png" />
+    <Resource Include="Graphical resourses\Images\Logo.png" />
     <Content Include="tests.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
