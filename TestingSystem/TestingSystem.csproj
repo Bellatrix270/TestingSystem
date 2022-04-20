@@ -84,6 +84,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Exception\TestException.cs" />
+    <Compile Include="Exception\TestExceptionEnum.cs" />
     <Compile Include="Exception\UserException.cs" />
     <Compile Include="Infrastructure\Commands\Command.cs" />
     <Compile Include="Infrastructure\Commands\RelayCommand.cs" />
@@ -95,9 +97,32 @@
     <Compile Include="Models\EntityDB\User.cs" />
     <Compile Include="Models\EntityDB\UserTest.cs" />
     <Compile Include="Services\FtpService.cs" />
+    <Compile Include="ViewModels\AnswerVM.cs" />
+    <Compile Include="ViewModels\QuestionMultipleAnswersVM.cs" />
+    <Compile Include="ViewModels\QuestionSingleAnswerVM.cs" />
+    <Compile Include="ViewModels\QuestionVM.cs" />
+    <Compile Include="ViewModels\SignInSingUpViewModel.cs" />
+    <Compile Include="ViewModels\TestVM.cs" />
+    <Compile Include="Views\UserControls\AuthorizationUC.xaml.cs">
+      <DependentUpon>AuthorizationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\QuestionsContent.cs" />
+    <Compile Include="Views\UserControls\QuestionsUC.xaml.cs">
+      <DependentUpon>QuestionsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlPanel.xaml.cs">
+      <DependentUpon>UserControlPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\UserControls\AuthorizationUC.xaml" />
+    <Page Include="Views\UserControls\QuestionsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlPanel.xaml" />
+    <Page Include="Views\Windows\PassingTestWindow.xaml" />
     <Page Include="Views\Windows\TestsListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +130,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Windows\PassingTestWindow.xaml.cs">
+      <DependentUpon>PassingTestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\TestsListWindow.xaml.cs">
       <DependentUpon>TestsListWindow.xaml</DependentUpon>
@@ -117,9 +145,9 @@
     <Page Include="Views\Windows\AuthorizationWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\TestModelJson\Answer.cs" />
-    <Compile Include="Models\TestModelJson\Question.cs" />
-    <Compile Include="Models\TestModelJson\Test.cs" />
+    <Compile Include="Models\TestModelXml\AnswerXml.cs" />
+    <Compile Include="Models\TestModelXml\QuestionXml.cs" />
+    <Compile Include="Models\TestModelXml\TestXml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -160,7 +188,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Folder Include="Infrastructure\Converters\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Graphical resourses\Images\Blobs1.png" />
@@ -170,6 +198,8 @@
     <Resource Include="Graphical resourses\Images\Blobs_background.png" />
     <Resource Include="Graphical resourses\Images\Button_exit.png" />
     <Resource Include="Graphical resourses\Images\Logo.png" />
+    <Resource Include="Graphical resourses\Images\Background_blobs2.png" />
+    <Resource Include="Graphical resourses\Images\Background_blobs.png" />
     <Content Include="tests.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

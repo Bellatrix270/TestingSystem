@@ -3,11 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:TestingSystem.ViewModels"
         xmlns:local="clr-namespace:TestingSystem.Views.Windows"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Background="Transparent"
+        Title="AuthorizationWindow" WindowStyle="None" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" AllowsTransparency="True" 
+        Background="Transparent"
         Height="720" Width="480">
-  <Grid>
+    <Window.DataContext>
+        <vm:SignInSingUpViewModel/>
+    </Window.DataContext>
+    <Grid>
         <Grid.RowDefinitions>
           <RowDefinition Height="1*"/>
           <RowDefinition Height="3*"/>

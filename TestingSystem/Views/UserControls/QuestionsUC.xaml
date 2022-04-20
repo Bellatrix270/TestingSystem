@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="TestingSystem.Views.UserControls.QuestionsUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestingSystem.Views.UserControls"
+             xmlns:vm="clr-namespace:TestingSystem.ViewModels"
+             mc:Ignorable="d" Background="Transparent" 
+             d:DataContext="{x:Type local:QuestionsContent}" 
+             d:DesignHeight="600" d:DesignWidth="930">
+  <UserControl.Resources>
+    <Style x:Key="WhiteTextBlock" TargetType="TextBlock">
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+  </UserControl.Resources>
+  <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="auto"/>
+          <RowDefinition Height="auto"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition MaxHeight="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.RowSpan="4" Grid.ColumnSpan="2"
+                Style="{StaticResource BorderBackgroundPanel}" />
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0">
+          <Button HorizontalAlignment="Right" Background="Transparent" Width="36" BorderThickness="0" Margin="0,3,3,0">
+            <Image Source="/TestingSystem;component/Graphical resourses/Images/Button_exit.png" 
+                   HorizontalAlignment="Right"
+                   Width="36"/>
+          </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,15,0,0" Grid.ColumnSpan="2" Grid.Column="0">
+            <TextBlock Text="{Binding CurrentQuestion.Text}" TextWrapping="Wrap" MaxWidth="900"
+                       FontFamily="/TestingSystem;component/Graphical resourses/Fonts/#Montserrat Medium" 
+                       FontSize="30" TextAlignment="Center"/>
+            <Border BorderBrush="#8E8FEA" Height="2" 
+                    BorderThickness="1" CornerRadius="0.5" Margin="50,15,50,0"/> 
+        </StackPanel>
+        <ContentControl Content="{Binding CurrentQuestion}" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Margin="20,20,20,0">
+          <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type vm:QuestionSingleAnswerVM}">
+              <StackPanel>
+                <ItemsControl ItemsSource="{Binding Answers}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type vm:AnswerVM}">
+                      <RadioButton IsChecked="{Binding UserChoice}" VerticalAlignment="Center" GroupName="Answers">
+                        <RadioButton.Content>
+                          <TextBlock Style="{StaticResource WhiteTextBlock}" Text="{Binding Text}" FontSize="21" />
+                        </RadioButton.Content>
+                      </RadioButton>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </StackPanel>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:QuestionMultipleAnswersVM}">
+              <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Answers}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type vm:AnswerVM}">
+                      <CheckBox Content="{Binding Text}" IsChecked="{Binding UserChoice}"/>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </ScrollViewer>
+            </DataTemplate>
+          </ContentControl.Resources>
+        </ContentControl>
+
+        <Button Grid.Row="3" Grid.Column="0" 
+                Style="{StaticResource RoundedButton}"
+                Command="{Binding JumpQuestionCommand}"
+                CommandParameter="-1"
+                Content="Назад" Width="350" Height="45"/>
+
+        <Button Grid.Row="3" Grid.Column="1" 
+                Style="{StaticResource RoundedButton}" 
+                Command="{Binding JumpQuestionCommand}"
+                CommandParameter="1"
+                Content="Дальше" Width="350" Height="45"/>
+
+    </Grid>
+</UserControl>
